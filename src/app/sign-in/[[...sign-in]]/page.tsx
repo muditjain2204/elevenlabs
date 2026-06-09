@@ -1,7 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
 
 export default function SignInPage(){
-    return 
+    return (
     <div className="flex min-h-screen items-center justify-center bg-background">
         <SignIn
             appearance={{
@@ -12,4 +12,5 @@ export default function SignInPage(){
             }}
             />
     </div>
+    );
 }
