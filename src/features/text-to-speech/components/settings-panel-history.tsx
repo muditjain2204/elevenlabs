@@ -1,5 +1,5 @@
 "use client";
-import { AudioLines , AudioWaveform, Clock } from "lucide-react";
+import { AudioLines , Clock } from "lucide-react";
 
 export function SettingsPanelHistory() {
     return (
