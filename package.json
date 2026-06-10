@@ -11,8 +11,8 @@
     "sync-api": "tsx scripts/sync-api.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.997.0",
-    "@aws-sdk/s3-request-presigner": "^3.997.0",
+    "@aws-sdk/client-s3": "^3.1065.0",
+    "@aws-sdk/s3-request-presigner": "^3.1065.0",
     "@base-ui/react": "^1.2.0",
     "@clerk/nextjs": "^6.38.1",
     "@dicebear/collection": "^9.3.2",
@@ -24,10 +24,10 @@
     "@sentry/nextjs": "^10.40.0",
     "@t3-oss/env-nextjs": "^0.13.10",
     "@tanstack/react-form": "^1.28.3",
-    "@tanstack/react-query": "^5.90.21",
-    "@trpc/client": "^11.10.0",
-    "@trpc/server": "^11.10.0",
-    "@trpc/tanstack-react-query": "^11.10.0",
+    "@tanstack/react-query": "^5.101.0",
+    "@trpc/client": "^11.17.0",
+    "@trpc/server": "^11.17.0",
+    "@trpc/tanstack-react-query": "^11.17.0",
     "@types/recordrtc": "^5.6.15",
     "class-variance-authority": "^0.7.1",
     "client-only": "^0.0.1",
@@ -49,7 +49,7 @@
     "react-day-picker": "^9.13.2",
     "react-dom": "19.2.3",
     "react-dropzone": "^15.0.0",
-    "react-error-boundary": "^6.1.1",
+    "react-error-boundary": "^6.1.2",
     "react-hook-form": "^7.71.2",
     "react-resizable-panels": "^4.6.5",
     "recharts": "^2.15.4",
@@ -62,7 +62,7 @@
     "use-debounce": "^10.1.0",
     "vaul": "^1.1.2",
     "wavesurfer.js": "^7.12.1",
-    "zod": "^4.3.6"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
