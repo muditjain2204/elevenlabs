@@ -3,6 +3,7 @@ import { Inter as FontSans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from "@clerk/nextjs";
+import { TRPCReactProvider } from "@/trpc/routers/client";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,14 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || "pk_test_cG9zc2libGUtdHJlZWZyb2ctMTkuY2xlcmsuYWNjb3VudHMuZGV2JA"}>
-    <html lang="en">
-      <body
-        className={`${fontSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Toaster/>
-      </body>
-    </html>
+      <TRPCReactProvider>
+        <html lang="en">
+          <body
+            className={`${fontSans.variable} ${geistMono.variable} antialiased`}
+          >
+            {children}
+            <Toaster/>
+          </body>
+        </html>
+      </TRPCReactProvider>
     </ClerkProvider>
   );
 };
