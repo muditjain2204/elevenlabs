@@ -1,3 +1,4 @@
+import * as Senry from "@sentry/nextjs";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import * as Sentry from "@sentry/nextjs";
@@ -74,6 +75,8 @@ export const generationsRouter = createTRPCRouter({
              })
         )
         .mutation(async ({ input, ctx }) => {
+
+          
             const voice = await prisma.voice.findUnique({
                 where: {
                     id: input.voiceId,
@@ -113,11 +116,11 @@ export const generationsRouter = createTRPCRouter({
                 parseAs : "arrayBuffer",
             });
 
-             logger.info("Generation started", {
-        orgId: ctx.orgId,
-        voiceId: input.voiceId,
-        textLength: input.text.length,
-      });
+             Sentry.logger.info("Generation started", {
+              orgId: ctx.orgId,
+              voiceId: input.voiceId,
+              textLength: input.text.length,
+            });
 
       if (error) {
         throw new TRPCError({
@@ -132,6 +135,8 @@ export const generationsRouter = createTRPCRouter({
           message: "Invalid audio response",
         });
       }
+
+      
 
       const buffer = Buffer.from(data);
       let generationId: string | null = null;
@@ -168,7 +173,7 @@ export const generationsRouter = createTRPCRouter({
           },
         });
 
-        logger.info("Audio generated", {
+        Sentry.logger.info("Audio generated", {
           orgId: ctx.orgId,
           generationId: generation.id,
         });
@@ -183,10 +188,11 @@ export const generationsRouter = createTRPCRouter({
             .catch(() => {});
         }
 
-        logger.error("Generation failed", {
-          orgId: ctx.orgId,
-          voiceId: input.voiceId,
-        });
+             Sentry.logger.info("Generation started", {
+        orgId: ctx.orgId,
+        voiceId: input.voiceId,
+        
+      });
 
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
